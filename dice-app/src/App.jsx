@@ -8,7 +8,7 @@ export default function App(){
   const [name1 , setName1] = useState("");
   const [name2 , setName2 ] = useState("");
   const [dice1 , setDice1] = useState(1);
-  const [ dice2 , setDice2] = useState (1);
+  const [dice2 , setDice2] = useState (1);
   const [message , setMessage] = useState();
 
   // condition abhi false hai jab user data dedega player 1, 2 k liye jab true ho jayegi condition, or ye pg close hoky dosra ajayega.
@@ -43,6 +43,10 @@ export default function App(){
     setMessage("It's a draw 🤝");     
   } 
     }
+function restart(){
+  window.location.href="";
+}
+
 
 // html code
   return (
@@ -59,11 +63,13 @@ export default function App(){
 
     <button onClick={handleStart}>Start Game</button>
     </>
-    ): (
+    // empty block element
+    ) : (
    
       <>
+      <div className="box">
     <h1>Dice Game</h1>
-    <h3>{name1} Vs {name2}</h3>
+    <h3>{name1} <span>Vs</span> {name2}</h3>
 
     <div className="dice-box">
       <div className="dice-value">{dice1}</div>
@@ -71,9 +77,11 @@ export default function App(){
     </div>
 
 <button onClick={handleRoll}>Roll Dice</button>
+<button onClick={restart}>Restart</button>
 
 {/* win useer msg */}
 <p>{message}</p>
+</div>
 </>
     )}
     </div>
