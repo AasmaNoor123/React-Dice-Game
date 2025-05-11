@@ -1,0 +1,228 @@
+/* ---------- Base Styles ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  /* background: linear-gradient(135deg,rgb(249, 248, 197)); */
+background: linear-gradient(to bottom,rgb(255, 207, 215) 0%,rgb(255, 207, 215) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  min-height: 100vh;
+  /* background-size: 300% 300%; */
+  animation: gradientShift 15s ease infinite;
+  padding: 20px;
+  line-height: 2;
+  /* font-size: clamp(14px, 2vw, 17px); */
+}
+
+/* ---------- Container ---------- */
+.container {
+  width: 100%;
+  margin: auto;
+  margin-top: 10%;
+  max-width: 400px;
+  background: rgb(255, 233, 236);
+  padding: clamp(24px, 5vw, 36px);
+  border-radius: 16px;
+  border: 2px solid rgba(1, 1, 0, 0.025);
+  box-shadow: 0 0 10px rgb(135, 6, 6);
+  backdrop-filter: blur(6px);
+  text-align: center;
+}
+
+.box{
+  margin: auto;
+}
+
+p{
+  display: flex;
+  font-size: 1.1rem;
+  justify-content: center;
+  margin-top: 16px;
+  padding-bottom: 10px;
+}
+
+/* ---------- Text ---------- */
+h1, h2, h3{
+  margin: 12px 0;
+  color:  rgb(135, 6, 6);
+  font-size: clamp(18px, 4vw, 24px);
+  line-height: 1;
+}
+h3{
+  color: #4e4c4c;
+}
+
+span{
+  color:  rgb(135, 6, 6);
+}
+
+/* ---------- Input & Button ---------- */
+input, button {
+  width: 100%;
+  padding: clamp(12px, 3vw, 16px);
+  margin: 12px 0;
+  font-size: clamp(14px, 3.2vw, 17px);
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input {
+  background: rgb(255, 226, 230);
+  /* color: #e60a0a; */
+  border: .40px solid transparent;
+  box-shadow: inset 0 0 8px rgba(0, 255, 255, 0.1);
+}
+
+input:focus {
+  background: rgb(255, 253, 244);
+  border-color: rgb(135, 6, 6);
+  box-shadow: 0 0 5px  rgb(135, 6, 6) ;
+}
+
+input:hover {
+  background: rgb(255, 207, 215);
+}
+
+input::placeholder {
+  color: #3b3a3a;
+}
+
+button {
+  background: linear-gradient(135deg, rgb(255, 207, 215),  rgb(135, 6, 6));
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 0px 3px black;
+  cursor: pointer;
+  transition: all 0.4s ease; 
+}
+
+button:hover {
+  background: linear-gradient(135deg,  rgb(135, 6, 6),  rgb(255, 207, 215));
+  transform: scale(1.04);
+  box-shadow: 0 0 5px  rgb(0, 0, 0);
+  /* transition: all 0.3s ease; */
+  /* transition: background-color 1s ease; */
+}
+
+/* ---------- Dice Box ---------- */
+.dice-box {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 20px 0;
+}
+
+.dice-value {
+  flex: 1 1 45%;
+  min-width: 90px;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  background: rgb(255, 207, 215);
+  border-radius: 14px;
+  padding: clamp(18px, 4vw, 28px);
+  box-shadow: 0 0 6px rgb(135, 6, 6);
+  color: #4e4c4c;
+  text-align: center;
+  transition: transform 0.25s, box-shadow 0.3s;
+}
+
+.dice-value:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgb(250, 252, 177);
+  border: 1px solid rgb(135, 6, 6);
+}
+
+/* ---------- Media Queries (fine tuning) ---------- */
+/* @media (max-width: 400px) {
+  .dice-value {
+    font-size: 1.6rem;
+    min-width: 80px;
+  }
+
+  button, input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  p{
+    font-size: .80rem;
+    
+  }
+} */
+
+/* Small screens (phones in portrait, < 576px) */
+@media (max-width: 575.98px) {
+  .container {
+    margin-top: 20px;
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  .dice-value {
+    font-size: 1.4rem;
+    min-width: 70px;
+  }
+
+  p {
+    font-size: 0.8rem;
+  }
+
+  input, button {
+    font-size: 13px;
+    padding: 10px;
+  }
+}
+
+/* Medium devices (phones landscape, tablets portrait) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .container {
+    max-width: 95%;
+    margin-top: 15%;
+  }
+
+  .dice-value {
+    font-size: 1.6rem;
+    min-width: 80px;
+  }
+}
+
+/* Tablets landscape, small desktops */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .container {
+    max-width: 420px;
+    margin-top: 12%;
+  }
+}
+
+/* Large devices (desktops) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .container {
+    max-width: 420px;
+    margin-top: 10%;
+  }
+}
+
+/* Extra large screens (1200px+) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 450px;
+    margin-top: 8%;
+  }
+}
+
+
+
+
+
+
+/* ---------- Animation ---------- */
+/* @keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+} */
